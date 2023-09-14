@@ -15,6 +15,7 @@ const cartSlice = createSlice({
 
         },
         remove(state, action){
+            //action.payload means the product that we dispatched and we are accessing that product using action.payload.id which is simply product.id
             const updatedCartList = state.cartList.filter(item => item.id !== action.payload.id)
             const total = state.total - action.payload.price;
             return {...state, total:total, cartList: updatedCartList}
